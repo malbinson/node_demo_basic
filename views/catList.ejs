@@ -9,13 +9,17 @@
 
 <a href="/addCat">Add a Cat</a>
 <br>
-Your cats:<br>
+Your cats:
+
+<table>
+
 <% for(var i = 0; i<cats.length;i++) { %>
-    <%= cats[i].name %>
-    <%= cats[i].breed %>
-    <%= cats[i].age %>
-    <br>
+  <tr>
+    <td><%= cats[i].name %></td>
+  </tr>
 <% } %>
+
+</table>
 
 </body>
 

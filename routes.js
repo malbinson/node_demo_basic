@@ -27,7 +27,7 @@ module.exports = function(app) {
     var catName = req.body.catName
 
     //create and save our cat, just like creating an object
-    var newCat = new Cat({ name: catName  });
+    var newCat = new Cat({ name: catName });
     newCat.save(function (err) {
 
       console.log("saved: " + newCat.name)
