@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose');
 var app = express()
 
-// Connect to DB
+// Add Connect String Here
 mongoose.connect(ADD_CONNECT_STRING_HERE)
 
 //set up vars
