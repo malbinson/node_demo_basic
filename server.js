@@ -5,7 +5,7 @@ var app = express()
 
 // Connect to DB
 //mongoose.connect('mongodb://malbinson:malbinson1@ds119503.mlab.com:19503/albinson');
-mongoose.connect('mongodb+srv://malbinson:malbinson1@cluster0-cvp0r.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect(ADD_CONNECT_STRING_HERE)
 
 //set up vars
 app.set('view engine','ejs');
