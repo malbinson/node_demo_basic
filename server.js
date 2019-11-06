@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var app = express()
 
 // Connect to DB
-//mongoose.connect('mongodb://malbinson:malbinson1@ds119503.mlab.com:19503/albinson');
 mongoose.connect(ADD_CONNECT_STRING_HERE)
 
 //set up vars
