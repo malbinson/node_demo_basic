@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var app = express()
 
 // Connect to DB
-mongoose.connect('mongodb://malbinson:malbinson1@ds119503.mlab.com:19503/albinson');
+//mongoose.connect('mongodb://malbinson:malbinson1@ds119503.mlab.com:19503/albinson');
+mongodb+srv://malbinson:<password>@cluster0-cvp0r.mongodb.net/test?retryWrites=true&w=majority
 
 //set up vars
 app.set('view engine','ejs');
