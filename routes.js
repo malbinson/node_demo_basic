@@ -4,20 +4,34 @@ module.exports = function(app) {
   var Cat = require('./cat')
 
   //home page: list al the cats
-  app.get('/', function(req, res) {
+  app.get('/', async function(req, res) {
+    const cats = await Cat.find({});
+    res.render('catList.ejs',{cats:cats})
+  });
 
-    //find all the cats then render
-    //catList passing it our found cats
-    Cat.find({}, function(err, cats) {
-      console.log(cats);
-      res.render('catList.ejs',{cats:cats})
-    });
-
+  app.get('/catDetail/:id', async function(req,res){
+    const cat = await Cat.findOne({_id:req.params.id})
+    res.render('catDetail.ejs',{cat:cat})
   });
 
   //display (GET) the addCat page
   app.get('/addCat', function(req,res) {
     res.render("addCat.ejs")
+  })
+
+  app.post('/deleteCat', async (req,res) => {
+    await Cat.deleteOne({ _id: req.body.id });
+    res.redirect("/")
+  })
+
+  app.get('/updateCat/:id', async function(req,res){
+    const cat = await Cat.findOne({_id:req.params.id})
+    res.render('updateCat.ejs',{cat:cat})
+  });
+
+  app.post('/updateCat', async (req,res) => {
+    await Cat.findByIdAndUpdate(req.body.id, { name: req.body.catName });
+    res.redirect("/")
   })
 
   //handle the submit (POST) on adding a cat
@@ -28,15 +42,11 @@ module.exports = function(app) {
 
     //create and save our cat, just like creating an object
     var newCat = new Cat({ name: catName });
-    newCat.save(function (err) {
+    newCat.save(async function (err) {
 
-      console.log("saved: " + newCat.name)
+      const cats = await Cat.find({});
 
-      //finding cats again and rendering page
-      Cat.find({}, function(err, cats) {
-        console.log(cats);
-        res.render('catList.ejs',{cats:cats})
-      });
+      res.render('catList.ejs',{cats:cats})
 
     })
 

@@ -1,0 +1,23 @@
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<br>
+Your cat is named: <%= cat.name %>
+
+<form action="/deleteCat" method="POST">
+    <input type="hidden" name="id" value="<%= cat._id %>">
+    <input type="submit" value="Delete Cat">
+</form>
+
+<a href="/updateCat/<%= cat._id %>">Update Cat</a>
+
+</body>
+
+
+</html>

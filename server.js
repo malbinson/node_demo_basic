@@ -3,8 +3,10 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose');
 var app = express()
 
+mongoose.connection.on('connected', () => console.log('connected'));
+
 // Add Connect String Here
-mongoose.connect(ADD_CONNECT_STRING_HERE)
+mongoose.connect("mongodb+srv://malbinson:malbinson@cluster1.cvp0r.mongodb.net/malbinson?retryWrites=true&w=majority&appName=Cluster1&useNewUrlParser=true")
 
 //set up vars
 app.set('view engine','ejs');

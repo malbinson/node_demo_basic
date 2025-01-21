@@ -2,7 +2,7 @@
 
 <head>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@ Your cats:
 
 <% for(var i = 0; i<cats.length;i++) { %>
   <tr>
-    <td><%= cats[i].name %></td>
+    <td><a href="/catDetail/<%= cats[i]._id %>"><%= cats[i].name %></a></td>
   </tr>
 <% } %>
 
