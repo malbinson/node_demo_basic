@@ -6,6 +6,7 @@ module.exports = function(app) {
   //home page: list al the cats
   app.get('/', async function(req, res) {
     const cats = await Cat.find({});
+    //comment
     res.render('catList.ejs',{cats:cats})
   });
 
